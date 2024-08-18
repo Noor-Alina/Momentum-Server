@@ -9,7 +9,7 @@ export function up(knex) {
       table.string('workout_type').notNullable();
       table.string('muscle').notNullable();
       table.string('equipment').notNullable();
-      table.enu('difficulty', ['beginner', 'intermediate', 'advanced']).defaultTo('beginner');
+      table.enu('difficulty', ['Beginner', 'Intermediate', 'Advanced']).defaultTo('Beginner');
       table.text('instructions').notNullable();
       table.string('image_path').notNullable();
       table.timestamp('created_at').defaultTo(knex.fn.now());
