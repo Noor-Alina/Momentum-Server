@@ -18,11 +18,11 @@ const getAllWorkouts = async (req, res) => {
 
 const getWorkouts = async (req, res) => {
 
-    const {type, difficulty} = req.query;
+    const {workout_type, difficulty} = req.query;
 
     let query; 
 
-    if (type){
+    if (workout_type){
         query = knex('workouts').where('workout_type', type);
     }
 
