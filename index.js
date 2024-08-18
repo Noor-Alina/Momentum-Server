@@ -5,6 +5,7 @@ import cors from "cors";
 import path from "path";
 import authRoutes from "./routes/auth.js";
 import profileRoutes from "./routes/profile.js";
+import workoutRoutes from "./routes/workouts.js";
 
 
 const PORT = process.env.PORT || 8081;
@@ -19,6 +20,9 @@ app.use('/auth', authRoutes);
 
 //base for profile route
 app.use('/user', profileRoutes);
+
+//base for workouts route
+app.use('/workouts', workoutRoutes);
 
 app.listen(PORT, () => {
 console.log(`Listening on PORT ${PORT}.`);
