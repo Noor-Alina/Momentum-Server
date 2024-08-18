@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 //base for auth routes
-app.use('/', authRoutes);
+app.use('/auth', authRoutes);
 
 //base for profile route
 app.use('/user', profileRoutes);

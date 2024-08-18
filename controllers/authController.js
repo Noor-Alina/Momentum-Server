@@ -28,6 +28,9 @@ const signUp = async (req, res) => {
 const logIn = async (req, res) => {
     const {user_email, password} = req.body;
 
+    if (!user_email || !password) {
+        return res.status(404).send("Please enter the required fields");
+      }
 
     const user = await knex('users').where({user_email}).first();
 
