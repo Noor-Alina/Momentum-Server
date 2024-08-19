@@ -12,6 +12,8 @@
     "seed": "knex seed:run"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.17.0",
+    "axios": "^1.7.4",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -21,9 +23,9 @@
     "mysql2": "^3.11.0"
   },
   "devDependencies": {
+    "nodemon": "^3.1.4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "nodemon": "^3.1.4"
+    "react-dom": "^18.3.1"
   },
   "keywords": [],
   "author": "Your Name",

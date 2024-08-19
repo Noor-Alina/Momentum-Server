@@ -6,6 +6,7 @@ import path from "path";
 import authRoutes from "./routes/auth.js";
 import profileRoutes from "./routes/profile.js";
 import workoutRoutes from "./routes/workouts.js";
+import geminiRoutes from "./routes/gemini.js";
 
 
 const PORT = process.env.PORT || 8081;
@@ -23,6 +24,9 @@ app.use('/user', profileRoutes);
 
 //base for workouts route
 app.use('/workouts', workoutRoutes);
+
+// Use the Gemini routes
+app.use('/gemini', geminiRoutes);
 
 app.listen(PORT, () => {
 console.log(`Listening on PORT ${PORT}.`);
