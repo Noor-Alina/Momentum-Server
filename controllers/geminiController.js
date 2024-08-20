@@ -13,7 +13,8 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 export const generateContent = async (req, res) => {
     const { dietType, days, mealPreference } = req.body; 
 
-    const prompt = `Generate a JSON format like structured ${dietType} meal plan for ${days} days. Preferences: ${mealPreference}.`;
+    const prompt = `Generate a JSON format like structured ${dietType} meal plan for ${days} days. Preferences: ${mealPreference}. Do not generate any time associated with these meals. 
+    Make sure to give me the day and the list of meals. In the meals list, name the meal type as meal, the actual meal as name and the list of ingrediants as ingrediants. Additionally, always provide the day tag, also provide the value like day: day1 and etc. Only provide breakfast, lunch, dinner. No snacks`;
 
     try {
         const result = await model.generateContent(prompt);
