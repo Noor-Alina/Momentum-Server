@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/all', getAllWorkouts);
 
-//get workouts
+
 router.get('/', getWorkouts);
 
 export default router;

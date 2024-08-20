@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from "../utils/constants.js";
 
 
-//Sign Up function 
 const signUp = async (req, res) => {
     const {user_name, user_email, password} = req.body;
 
@@ -42,7 +41,6 @@ const logIn = async (req, res) => {
         if (!checkPasswordIsValid){
             return res.status(401).json({error: "Invalid Password"});
         }else{
-            //gen jwt token since valid
             const token = jwt.sign({id: user.id, email: user.user_email}, SECRET_KEY, { expiresIn: "24h" }
             );
             res.json({ token });

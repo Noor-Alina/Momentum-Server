@@ -3,7 +3,6 @@ import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
 
 
-//get profile Info function 
 const getProfile = async (req, res) => {
     
     const userId = req.userId;
@@ -23,13 +22,12 @@ const getProfile = async (req, res) => {
     }
 };
 
-//update
+
 const updateProfile = async (req, res) => {
     const userId = req.userId; 
     const { user_name, user_email, password } = req.body;
 
     try {
-        // Validate input data
         if (!user_name || !user_email) {
             return res.status(400).json({ error: 'Name and email are required' });
         }

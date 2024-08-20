@@ -9,10 +9,9 @@ const authMiddleware = (req, res, next) => {
     if (!authHeader){
         return res.status(403).json({error: "Please Log In"});
     }else {
-        //extract token from auth header
         const token = authHeader.split(" ")[1];
 
-        //veryfy the token extracted
+        
         try {
             const decodedToken = jwt.verify(token, SECRET_KEY);
             req.userId = decodedToken.id;
