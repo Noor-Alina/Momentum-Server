@@ -1,7 +1,7 @@
 # Server for Momentum
 
-# Project Title
-	Momentum
+## Project Title
+### Momentum
 	
 ## Overview
 	Momentum is an all-in-one fitness app that integrates various aspects of health and 
