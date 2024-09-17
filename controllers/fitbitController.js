@@ -47,4 +47,50 @@ const callback = async (req, res) => {
     }
 };
 
-export {authorize, callback};
+const getData = async (req, res) => {
+
+    const accessToken = req.query.access_token;
+
+    if (!accessToken){
+        console.error('Access token is required');
+        return res.status(400).send('Access token is required');
+    } else{
+
+        try {
+            const [profileResponse, activityResponse, nutritionResponse, sleepResponse] 
+            = await Promise.all([
+
+                axios.get('https://api.fitbit.com/1/user/-/profile.json', {
+                    headers: { Authorization: `Bearer ${accessToken}` },
+                }),
+
+                axios.get('https://api.fitbit.com/1/user/-/activities/date/2024-04-17.json', {
+                    headers: { Authorization: `Bearer ${accessToken}` },
+                }),
+
+                axios.get('https://api.fitbit.com/1/user/-/foods/log/date/2024-04-17.json', {
+                    headers: { Authorization: `Bearer ${accessToken}` },
+                }),
+
+                // axios.get('https://api.fitbit.com/1.2/user/-/sleep/date/2024-04-17.json', {
+                //     headers: { Authorization: `Bearer ${accessToken}` },
+                // }),
+            ]);
+
+            //for perticular day - https://api.fitbit.com/1/user/-/foods/log/date/2024-01-01.json
+
+            // console.log('Sleep:', sleepResponse.data);
+            res.json({
+                profile: profileResponse.data,
+                activity: activityResponse.data,
+                nutrition: nutritionResponse.data,
+                // sleep: sleepResponse.data,
+            });
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            res.status(500).send('Failed to fetch data');
+        }
+    }
+};
+
+export {authorize, callback, getData};
