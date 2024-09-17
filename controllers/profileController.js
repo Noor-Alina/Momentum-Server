@@ -1,6 +1,7 @@
 import initKnex from "knex";
 import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
+import bcrypt from 'bcrypt';
 
 
 const getProfile = async (req, res) => {
