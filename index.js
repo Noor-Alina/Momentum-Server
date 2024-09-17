@@ -27,7 +27,6 @@ app.use('/workouts', workoutRoutes);
 
 app.use('/gemini', geminiRoutes);
 
-// Use the Fitbit routes
 app.use('/fitbit', fitbitRoutes);
 
 app.listen(PORT, () => {
