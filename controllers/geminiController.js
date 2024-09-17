@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from 'dotenv';
-import axios from 'axios';
 import { GEMINI_API_KEY } from "../utils/constants.js";
 
 dotenv.config();
