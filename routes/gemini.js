@@ -1,6 +1,5 @@
 import express from 'express';
-import { generateContent } from '../controllers/geminiController.js'; // Import the controller function
-
+import { generateContent } from '../controllers/geminiController.js'; 
 const router = express.Router();
 
 
